@@ -37,7 +37,7 @@ if (process.env.NODE_ENV === 'production') {
 
 app.get('/', (req, res) => res.send('Welcome to the Employee Inventory Management System!'));
 
-app.use('/employee', employeeRoute);
+app.use('/employee', express.static(path.join(__dirname,"/employee")));
 
 app.use((err, req, res, next) => {
     console.error(err.stack);
@@ -45,7 +45,7 @@ app.use((err, req, res, next) => {
 });
 
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(process.env.PORT || 5555, () => console.log(`Server running on port ${PORT}`));
 
 
 
