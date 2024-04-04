@@ -43,6 +43,15 @@ app.get('*', (req, res) => {
 });
 };
 
+
+//logging paths to console
+const sourcePath = path.join(__dirname, 'frontend', 'dist', 'index.html');
+const destinationPath = '/';
+
+console.log('Source path:', sourcePath);
+console.log('Destination path:', destinationPath);
+
+
 app.get('/', (req, res) => res.send('Welcome to the Employee Inventory Management System!'));
 
 app.use('/employee', employeeRoute);
