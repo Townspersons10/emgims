@@ -36,11 +36,11 @@ app.use(express.json());
 app.use(cors());
 
 if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, "../frontend/dist")));
+    app.use(express.static(path.join(__dirname, 'frontend', 'dist')));
 
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, '../frontend/dist', 'index.html'));
-    });
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'frontend', 'dist', 'index.html'));
+});
 };
 
 app.get('/', (req, res) => res.send('Welcome to the Employee Inventory Management System!'));
@@ -52,12 +52,5 @@ app.use((err, req, res, next) => {
     res.status(500).send('Something broke!');
 });
 
-
-const pathToFrontendBuild = path.resolve(__dirname, '../frontend/dist');
-app.use(express.static(pathToFrontendBuild));
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(pathToFrontendBuild, 'index.html'));
-});
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
