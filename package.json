@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "heroku-postbuild": "cd backend/frontend && npm install && npm run build"},
+    "heroku-postbuild": "cd backend/frontend && npm install && npm run build",    
+  "heroku-prebuild": "npm install -g tailwindcss"
+  },
   "author": "",
   "license": "ISC",
   "engines": {
