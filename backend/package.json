@@ -7,7 +7,8 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "heroku-postbuild": "cd frontend && npm install && npm run build"
+    "heroku-postbuild": "cd frontend && npm install && npm run build",    
+    "heroku-prebuild": "npm install -g tailwindcss"
   },
   "keywords": [],
   "author": "",
